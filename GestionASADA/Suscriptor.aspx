@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Suscriptor.aspx.vb" Inherits="GestionASADA.Suscriptor" %>
+﻿<%@ Page Title="Suscriptor" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Suscriptor.aspx.vb" Inherits="GestionASADA.Suscriptor" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:Label ID="lblGestionSuscriptores" runat="server" Text="Sistema de Gestión de Suscriptores de la ASADA"></asp:Label>
@@ -104,8 +104,8 @@
         </asp:DropDownList>
     </div>
 
-
-
+    <asp:Label ID="lblResultado" runat="server" Text="Resultado" CssClass="control-label"></asp:Label>
+     <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-primary my-2" OnClick="btnGuardar_Click" />
 
 
 

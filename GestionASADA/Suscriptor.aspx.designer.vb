@@ -291,4 +291,22 @@ Partial Public Class Suscriptor
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents ddlEstado As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Control lblResultado.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblResultado As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control btnGuardar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnGuardar As Global.System.Web.UI.WebControls.Button
 End Class
