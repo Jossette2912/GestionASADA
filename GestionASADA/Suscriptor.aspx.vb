@@ -1,5 +1,9 @@
-﻿Public Class Suscriptor
+﻿Imports GestionASADA.Utils
+
+Public Class Suscriptor
     Inherits System.Web.UI.Page
+
+    Private db As New SuscriptorDB()
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
@@ -22,14 +26,15 @@
 
 
         lblResultado.Text = suscriptor.Resumen()
-        'Dim errorMessage As String = ""
-        'Dim resultado = db.CrearPersona(suscriptor, errorMessage)
+        Dim errorMessage As String = ""
+        Dim resultado = db.CrearSuscriptor(suscriptor, errorMessage)
 
-        'If resultado Then
-        '    SwalUtils.ShowSwal(Me, "Persona creada exitosamente.")
-        '    gvPersonas.DataBind()
-        'Else
-        '    SwalUtils.ShowSwalError(Me, errorMessage)
+        If resultado Then
+            SwalUtils.ShowSwal(Me, "Suscriptor creado exitosamente.")
+            gvSuscriptor.DataBind() 'Actualizar el GridView para mostrar el nuevo suscriptor
+        Else
+            SwalUtils.ShowSwalError(Me, errorMessage)
+        End If
         'End If
     End Sub
 End Class

@@ -8,7 +8,7 @@ Public Class SuscriptorDB
     Public Function CrearSuscriptor(ByVal sSuscriptor As Models.Suscriptor, ByRef errorMessage As String) As Boolean
         'Lógica para crear una nueva persona en la base de datos
         Using db.GetConnection()
-                Dim query As String = "INSERT INTO StUSCRIPTOR (TIPO_IDENTIFICACION, IDENTIFICACION, NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO,
+            Dim query As String = "INSERT INTO SUSCRIPTOR (TIPO_IDENTIFICACION, IDENTIFICACION, NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO,
  DIRECCION, FECHANAC, TELEFONO, CORREO, ESTADO) VALUES (@TIPO_IDENTIFICACION,@IDENTIFICACION,@NOMBRE,@PRIMER_APELLIDO,@SEGUNDO_APELLIDO,
 @DIRECCION,@FECHANAC,@TELEFONO,@CORREO,@ESTADO)"
 
