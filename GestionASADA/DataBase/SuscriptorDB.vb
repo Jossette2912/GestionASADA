@@ -28,4 +28,14 @@ Public Class SuscriptorDB
         End Using
         Return True
     End Function
+
+    Public Function EliminarSuscriptor(ByVal id As Integer, ByRef errorMessage As String) As Boolean
+
+        Dim query As String = "DELETE FROM SUSCRIPTOR WHERE SUSCRIPTORID = @Id"
+        Dim parameters As New Dictionary(Of String, Object) From {
+                {"@Id", id}
+            }
+        Return db.ExecuteNonQuery(query, parameters, errorMessage)
+
+    End Function
 End Class

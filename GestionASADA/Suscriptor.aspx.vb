@@ -37,4 +37,18 @@ Public Class Suscriptor
         End If
         'End If
     End Sub
+
+
+    Protected Sub gvSuscriptor_RowDeleting(sender As Object, e As GridViewDeleteEventArgs)
+        e.Cancel = True ' Cancelar la eliminación predeterminada del GridView
+        Dim id As Integer = Convert.ToInt32(gvSuscriptor.DataKeys(e.RowIndex).Value)
+        Dim errorMessage As String = ""
+        Dim resultado = db.EliminarSuscriptor(id, errorMessage)
+        If resultado Then
+            SwalUtils.ShowSwal(Me, "Suscriptor eliminado exitosamente.")
+            gvSuscriptor.DataBind() ' Refrescar el GridView después de eliminar
+        Else
+            SwalUtils.ShowSwalError(Me, errorMessage)
+        End If
+    End Sub
 End Class

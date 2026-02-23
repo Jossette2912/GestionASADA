@@ -107,7 +107,7 @@
     <asp:Label ID="lblResultado" runat="server" Text="Resultado" CssClass="control-label"></asp:Label>
      <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-primary my-2" OnClick="btnGuardar_Click" />
 
-    <asp:GridView ID="gvSuscriptor" runat="server" AutoGenerateColumns="False" DataKeyNames="SUSCRIPTORID" DataSourceID="SqlDataSource1">
+    <asp:GridView ID="gvSuscriptor" runat="server" AutoGenerateColumns="False" DataKeyNames="SUSCRIPTORID" DataSourceID="SqlDataSource1" OnRowDeleting="gvSuscriptor_RowDeleting">
         <Columns>
             <asp:BoundField DataField="SUSCRIPTORID" HeaderText="SUSCRIPTORID" InsertVisible="False" ReadOnly="True" SortExpression="SUSCRIPTORID" />
             <asp:BoundField DataField="TIPO_IDENTIFICACION" HeaderText="TIPO_IDENTIFICACION" SortExpression="TIPO_IDENTIFICACION" />
@@ -120,6 +120,7 @@
             <asp:BoundField DataField="TELEFONO" HeaderText="TELEFONO" SortExpression="TELEFONO" />
             <asp:BoundField DataField="CORREO" HeaderText="CORREO" SortExpression="CORREO" />
             <asp:BoundField DataField="ESTADO" HeaderText="ESTADO" SortExpression="ESTADO" />
+            <asp:CommandField ShowDeleteButton="True" ControlStyle-CssClass="btn btn-danger" DeleteText="<i class='bi bi-trash'>"/>
         </Columns>
     </asp:GridView>
 
