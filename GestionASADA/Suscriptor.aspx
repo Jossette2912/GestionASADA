@@ -107,7 +107,25 @@
     <asp:Label ID="lblResultado" runat="server" Text="Resultado" CssClass="control-label"></asp:Label>
      <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-primary my-2" OnClick="btnGuardar_Click" />
 
+    <asp:GridView ID="gvSuscriptor" runat="server" AutoGenerateColumns="False" DataKeyNames="SUSCRIPTORID" DataSourceID="SqlDataSource1">
+        <Columns>
+            <asp:BoundField DataField="SUSCRIPTORID" HeaderText="SUSCRIPTORID" InsertVisible="False" ReadOnly="True" SortExpression="SUSCRIPTORID" />
+            <asp:BoundField DataField="TIPO_IDENTIFICACION" HeaderText="TIPO_IDENTIFICACION" SortExpression="TIPO_IDENTIFICACION" />
+            <asp:BoundField DataField="IDENTIFICACION" HeaderText="IDENTIFICACION" SortExpression="IDENTIFICACION" />
+            <asp:BoundField DataField="NOMBRE" HeaderText="NOMBRE" SortExpression="NOMBRE" />
+            <asp:BoundField DataField="PRIMER_APELLIDO" HeaderText="PRIMER_APELLIDO" SortExpression="PRIMER_APELLIDO" />
+            <asp:BoundField DataField="SEGUNDO_APELLIDO" HeaderText="SEGUNDO_APELLIDO" SortExpression="SEGUNDO_APELLIDO" />
+            <asp:BoundField DataField="DIRECCION" HeaderText="DIRECCION" SortExpression="DIRECCION" />
+            <asp:BoundField DataField="FECHANAC" HeaderText="FECHANAC" SortExpression="FECHANAC" />
+            <asp:BoundField DataField="TELEFONO" HeaderText="TELEFONO" SortExpression="TELEFONO" />
+            <asp:BoundField DataField="CORREO" HeaderText="CORREO" SortExpression="CORREO" />
+            <asp:BoundField DataField="ESTADO" HeaderText="ESTADO" SortExpression="ESTADO" />
+        </Columns>
+    </asp:GridView>
 
+
+
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ASADAConnectionString %>" ProviderName="<%$ ConnectionStrings:ASADAConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [SUSCRIPTOR]"></asp:SqlDataSource>
 
 
 
