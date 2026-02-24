@@ -122,9 +122,9 @@ Namespace Models
             End Set
         End Property
 
-        Public Function Resumen() As String
-            Return $"Nombre: {Nombre} {Apellido1} {Apellido2} - {Correo}"
-        End Function
+        'Public Function Resumen() As String
+        '    Return $"Nombre: {Nombre} {Apellido1} {Apellido2} - {Correo}"
+        'End Function
     End Class
 End Namespace
 

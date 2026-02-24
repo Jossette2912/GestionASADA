@@ -1,7 +1,5 @@
 ﻿Imports System.Data.SqlClient
 
-
-
 Public Class SuscriptorDB
 
     Private db As New DbHelper()
@@ -38,4 +36,8 @@ Public Class SuscriptorDB
         Return db.ExecuteNonQuery(query, parameters, errorMessage)
 
     End Function
+
+    'Public Function ConsultarSuscriptor(id As String, errorMessage As String) As Models.Suscriptor
+    '    Throw New NotImplementedException()
+    'End Function
 End Class

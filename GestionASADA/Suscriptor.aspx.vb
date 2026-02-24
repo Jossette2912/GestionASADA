@@ -25,7 +25,7 @@ Public Class Suscriptor
         suscriptor.Estado = ddlEstado.SelectedItem.Value
 
 
-        lblResultado.Text = suscriptor.Resumen()
+        'lblResultado.Text = suscriptor.Resumen()
         Dim errorMessage As String = ""
         Dim resultado = db.CrearSuscriptor(suscriptor, errorMessage)
 
@@ -50,5 +50,24 @@ Public Class Suscriptor
         Else
             SwalUtils.ShowSwalError(Me, errorMessage)
         End If
+    End Sub
+
+
+    Protected Sub gvSuscriptor_SelectedIndexChanged(sender As Object, e As EventArgs)
+        Dim selectedRow As GridViewRow = gvSuscriptor.SelectedRow
+        Dim id = selectedRow.Cells(1).Text
+
+        Dim errorMessage As String = ""
+        'Dim persona As Models.Suscriptor = db.ConsultarSuscriptor(id, errorMessage)
+        ddlTipoDocumento.SelectedValue = selectedRow.Cells(2).Text
+        txtNumId.Text = selectedRow.Cells(3).Text
+        txtNombre.Text = HttpUtility.HtmlDecode(selectedRow.Cells(4).Text)
+        txtApellido1.Text = HttpUtility.HtmlDecode(selectedRow.Cells(5).Text)
+        txtApellido2.Text = HttpUtility.HtmlDecode(selectedRow.Cells(6).Text)
+        txtDireccion.Text = HttpUtility.HtmlDecode(selectedRow.Cells(7).Text)
+        txtFechaNac.Text = selectedRow.Cells(8).Text
+        txtTelefono.Text = selectedRow.Cells(9).Text
+        txtCorreo.Text = HttpUtility.HtmlDecode(selectedRow.Cells(10).Text)
+        ddlEstado.SelectedValue = selectedRow.Cells(11).Text
     End Sub
 End Class
