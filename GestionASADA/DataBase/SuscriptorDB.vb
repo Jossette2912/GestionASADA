@@ -49,8 +49,11 @@ Public Class SuscriptorDB
                 .Nombre = row("Nombre").ToString(),
                 .Apellido1 = row("Apellido1").ToString(),
                 .Apellido2 = row("Apellido2").ToString(),
+                .Direccion = row("Direccion").ToString(),
                 .FechaNacimiento = Convert.ToDateTime(row("FechaNac")),
+                .Telefono = row("Telefono").ToString(),
                 .Correo = row("Correo").ToString(),
+                .Estado = row("Estado").ToString(),
                 .NumeroDocumento = row("Documento").ToString(),
                 .Tipodocumento = row("TipoDocumento").ToString()
             }
