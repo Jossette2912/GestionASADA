@@ -58,7 +58,7 @@ Public Class Suscriptor
         Dim id = selectedRow.Cells(1).Text
 
         Dim errorMessage As String = ""
-        'Dim persona As Models.Suscriptor = db.ConsultarSuscriptor(id, errorMessage)
+        Dim persona As Models.Suscriptor = db.ConsultarSuscriptor(id, errorMessage)
         ddlTipoDocumento.SelectedValue = selectedRow.Cells(2).Text
         txtNumId.Text = selectedRow.Cells(3).Text
         txtNombre.Text = HttpUtility.HtmlDecode(selectedRow.Cells(4).Text)

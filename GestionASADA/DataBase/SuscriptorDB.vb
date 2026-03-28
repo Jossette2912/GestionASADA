@@ -37,7 +37,26 @@ Public Class SuscriptorDB
 
     End Function
 
-    'Public Function ConsultarSuscriptor(id As String, errorMessage As String) As Models.Suscriptor
-    '    Throw New NotImplementedException()
-    'End Function
+    Public Function ConsultarSuscriptor(id As String, ByRef errorMessage As String) As Models.Suscriptor
+        Dim query As String = "SELECT * FROM Suscriptor WHERE IDPersona = @Id"
+        Dim parameters As New Dictionary(Of String, Object) From {
+            {"@Id", id}
+        }
+        Dim dt As DataTable = db.ExecuteQuery(query, parameters, errorMessage)
+        If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
+            Dim row As DataRow = dt.Rows(0)
+            Dim persona As New Models.Suscriptor() With {
+                .Nombre = row("Nombre").ToString(),
+                .Apellido1 = row("Apellido1").ToString(),
+                .Apellido2 = row("Apellido2").ToString(),
+                .FechaNacimiento = Convert.ToDateTime(row("FechaNac")),
+                .Correo = row("Correo").ToString(),
+                .NumeroDocumento = row("Documento").ToString(),
+                .Tipodocumento = row("TipoDocumento").ToString()
+            }
+            Return persona
+        End If
+        Return Nothing
+    End Function
+
 End Class
