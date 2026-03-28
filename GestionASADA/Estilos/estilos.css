@@ -1,13 +1,13 @@
 ﻿
 
-/* GENERAL*/
+
 body {
     background-color: #f4f6f9;
     font-family: 'Segoe UI', Tahoma, sans-serif;
     color: #2c3e50;
 }
 
-/*CONTENEDOR PRINCIPAL*/
+
 .form-container {
     max-width: 1000px;
     margin: 40px auto;
@@ -17,7 +17,7 @@ body {
     box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
-/* ====== TÍTULOS ====== */
+
 .titulo-principal {
     display: block;
     font-size: 28px;
@@ -33,7 +33,7 @@ body {
     margin-bottom: 30px;
 }
 
-/* ====== FORMULARIO ====== */
+
 .form-group {
     margin-bottom: 18px;
 }
@@ -50,7 +50,7 @@ body {
         box-shadow: 0 0 6px rgba(31,60,136,0.2);
     }
 
-/* ====== BOTÓN PRINCIPAL ====== */
+
 .btn-primary {
     background-color: #1f3c88;
     border: none;
@@ -65,7 +65,7 @@ body {
         box-shadow: 0 5px 15px rgba(0,0,0,0.15);
     }
 
-/* ====== TABLA ====== */
+
 .table-wrapper {
     max-width: 100%;
     overflow-x: auto;
@@ -96,12 +96,12 @@ body {
         vertical-align: middle;
     }
 
-/* Hover filas */
+
 .table-hover tbody tr:hover {
     background-color: #f2f6ff;
 }
 
-/* ====== VALIDACIONES ====== */
+
 span[style*="color:Red"] {
     font-size: 13px;
     color: #c0392b !important;
