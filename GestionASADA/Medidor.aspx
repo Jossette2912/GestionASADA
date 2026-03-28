@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Gestion de Medidor" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Medidor.aspx.vb" Inherits="Gestion_ASADA.Medidor" %>
+﻿<%@ Page Title="Gestion de Medidor" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Medidor.aspx.vb" Inherits="GestionASADA.Medidor" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -43,7 +43,7 @@
         <%--* Validacion Ubicacion *--%>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
             ErrorMessage="Debe indicar la ubicacion del medidor."
-            ControlToValidate="txtubicacion" Display="Dynamic" ForeColor="Red">  
+            ControlToValidate="txtUbicacion" Display="Dynamic" ForeColor="Red">  
         </asp:RequiredFieldValidator> 
     </div>
 
