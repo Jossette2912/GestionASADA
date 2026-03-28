@@ -37,6 +37,7 @@ Public Class SuscriptorDB
 
     End Function
 
+    'lógica para actualizar una persona existente en la base de datos
     Public Function ConsultarSuscriptor(id As String, ByRef errorMessage As String) As Models.Suscriptor
         Dim query As String = "SELECT * FROM Suscriptor WHERE IDPersona = @Id"
         Dim parameters As New Dictionary(Of String, Object) From {
