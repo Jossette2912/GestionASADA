@@ -26,25 +26,23 @@ Public Class ConsumoDB
         Dim query As String = "SELECT * FROM CONSUMO WHERE CONSUMOID = @ID"
 
         Dim parameters As New Dictionary(Of String, Object) From {
-            {"@ID", id}
-        }
+        {"@ID", id}
+    }
 
         Dim dt As DataTable = db.ExecuteQuery(query, parameters, errorMessage)
 
         If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
-
             Dim row As DataRow = dt.Rows(0)
 
-            Dim consumo As New Models.Consumo()
+            Dim c As New Models.Consumo() With {
+            .IdConsumo = Convert.ToInt32(row("CONSUMOID")),
+            .MedidorId = Convert.ToInt32(row("MEDIDORID")),
+            .FechaLectura = Convert.ToDateTime(row("FECHALECTURA")),
+            .LecturaAnterior = Convert.ToInt32(row("LECTURAANTERIOR")),
+            .LecturaActual = Convert.ToInt32(row("LECTURAACTUAL"))
+        }
 
-            consumo.IdConsumo = row("CONSUMOID")
-            consumo.MedidorId = row("MEDIDORID")
-            consumo.FechaLectura = Convert.ToDateTime(row("FECHALECTURA"))
-            consumo.LecturaAnterior = row("LECTURAANTERIOR")
-            consumo.LecturaActual = row("LECTURAACTUAL")
-            consumo.Consumo = row("CONSUMO")
-
-            Return consumo
+            Return c
         End If
 
         Return Nothing

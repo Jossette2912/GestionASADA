@@ -23,12 +23,18 @@
                     OnSelectedIndexChanged="ddlSuscriptor_SelectedIndexChanged">
                     <asp:ListItem Text="Seleccione un suscriptor" Value="" />
                 </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="rfvSuscriptor" runat="server"
+                    ErrorMessage="Es necesario seleccionar un Suscriptor"
+                    ControlToValidate="ddlSuscriptor" Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
 
 
             <div class="form-group">
                 <asp:Label ID="lblFecha" runat="server" Text="Fecha"></asp:Label>
                 <asp:TextBox ID="txtFecha" runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvFecha" runat="server"
+                    ErrorMessage="Es necesario indicar la fecha."
+                    ControlToValidate="txtFecha" Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
 
 
@@ -40,6 +46,9 @@
             <div class="form-group">
                 <asp:Label ID="lblTarifa" runat="server" Text="Tarifa"></asp:Label>
                 <asp:TextBox ID="txtTarifa" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvTarifa" runat="server"
+                    ErrorMessage="Es necesario indicar la tarifa."
+                    ControlToValidate="txtFecha" Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
 
 

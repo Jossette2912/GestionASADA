@@ -58,4 +58,36 @@ Public Class FacturaDB
         Return db.ExecuteNonQuery(query, parameters, errorMessage)
 
     End Function
+
+    Public Function ConsultarFactura(id As Integer, ByRef errorMessage As String) As Models.Factura
+
+        Dim query As String = "SELECT * FROM FACTURA WHERE FACTURAID = @ID"
+
+        Dim parameters As New Dictionary(Of String, Object) From {
+            {"@ID", id}
+        }
+
+        Dim dt As DataTable = db.ExecuteQuery(query, parameters, errorMessage)
+
+        If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
+            Dim row As DataRow = dt.Rows(0)
+
+            Dim f As New Models.Factura() With {
+                .IdFactura = Convert.ToInt32(row("FACTURAID")),
+                .SuscriptorId = Convert.ToInt32(row("SUSCRIPTORID")),
+                .Fecha = Convert.ToDateTime(row("FECHA")),
+                .Consumo = Convert.ToInt32(row("CONSUMO")),
+                .Tarifa = Convert.ToDecimal(row("TARIFA")),
+                .Estado = row("ESTADO").ToString()
+            }
+
+            ' recalcula total por consistencia
+            Dim err As String = ""
+            f.CalcularTotal(err)
+
+            Return f
+        End If
+
+        Return Nothing
+    End Function
 End Class

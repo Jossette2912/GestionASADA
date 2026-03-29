@@ -62,15 +62,26 @@ Public Class Factura
     End Sub
 
     Protected Sub gvFactura_SelectedIndexChanged(sender As Object, e As EventArgs)
-        Dim row As GridViewRow = gvFactura.SelectedRow
+        hfIdFactura.Value = gvFactura.DataKeys(gvFactura.SelectedIndex).Value
 
-        If row Is Nothing Then Return
+        Dim id As Integer = Convert.ToInt32(hfIdFactura.Value)
 
-        hfIdFactura.Value = gvFactura.DataKeys(row.RowIndex).Value
-        txtFecha.Text = Convert.ToDateTime(row.Cells(3).Text).ToString("yyyy-MM-dd")
-        txtConsumo.Text = row.Cells(4).Text
-        txtTarifa.Text = row.Cells(5).Text
-        txtTotal.Text = row.Cells(6).Text
+        Dim errorMessage As String = ""
+        Dim db As New FacturaDB()
+
+        Dim factura As Models.Factura = db.ConsultarFactura(id, errorMessage)
+
+        If factura Is Nothing Then
+            SwalUtils.ShowSwalError(Me, If(errorMessage = "", "No se pudo cargar la factura.", errorMessage))
+            Return
+        End If
+
+        ddlSuscriptor.SelectedValue = factura.SuscriptorId.ToString()
+        txtFecha.Text = factura.Fecha.ToString("yyyy-MM-dd")
+        txtConsumo.Text = factura.Consumo.ToString()
+        txtTarifa.Text = factura.Tarifa.ToString()
+        txtTotal.Text = factura.Total.ToString()
+        ddlEstado.SelectedValue = factura.Estado
 
         btnGuardar.Visible = False
         btnActualizar.Visible = True
