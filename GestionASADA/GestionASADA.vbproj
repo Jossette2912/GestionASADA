@@ -148,6 +148,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="UI\Consumo.aspx" />
+    <Content Include="UI\Factura.aspx" />
     <Content Include="UI\Medidor.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -226,6 +227,7 @@
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="DataBase\ConsumoDB.vb" />
+    <Compile Include="DataBase\FacturaDB.vb" />
     <Compile Include="DataBase\MedidorDB.vb" />
     <Compile Include="DataBase\SuscriptorDB.vb" />
     <Compile Include="Default.aspx.vb">
@@ -239,11 +241,19 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Consumo.vb" />
+    <Compile Include="Models\Factura.vb" />
     <Compile Include="UI\Consumo.aspx.designer.vb">
       <DependentUpon>Consumo.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Consumo.aspx.vb">
       <DependentUpon>Consumo.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="UI\Factura.aspx.designer.vb">
+      <DependentUpon>Factura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Factura.aspx.vb">
+      <DependentUpon>Factura.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="UI\Medidor.aspx.designer.vb">

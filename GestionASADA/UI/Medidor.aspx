@@ -17,7 +17,10 @@
                     CssClass="form-control"
                     DataSourceID="SqlDataSourceSuscriptor"
                     DataTextField="DESCRIPCION"
-                    DataValueField="SUSCRIPTORID">
+                    DataValueField="SUSCRIPTORID"
+           AutoPostBack="true">
+           <asp:ListItem Text="Seleccione un suscriptor" Value="" />
+
 </asp:DropDownList>
 
 <asp:SqlDataSource ID="SqlDataSourceSuscriptor" runat="server"

@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Consumo
+Partial Public Class Factura
 
     '''<summary>
     '''Control lblTitulo.
@@ -23,40 +23,22 @@ Partial Public Class Consumo
     Protected WithEvents lblTitulo As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Control lblMedidor.
+    '''Control lblSuscriptor.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblMedidor As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblSuscriptor As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Control ddlMedidor.
+    '''Control ddlSuscriptor.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents ddlMedidor As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''Control SqlDataSourceMedidor.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents SqlDataSourceMedidor As Global.System.Web.UI.WebControls.SqlDataSource
-
-    '''<summary>
-    '''Control rfvMedidor.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents rfvMedidor As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents ddlSuscriptor As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''Control lblFecha.
@@ -77,67 +59,85 @@ Partial Public Class Consumo
     Protected WithEvents txtFecha As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Control rfvFecha.
+    '''Control lblConsumo.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents rfvFecha As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents lblConsumo As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Control lblAnterior.
+    '''Control txtConsumo.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblAnterior As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents txtConsumo As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Control txtAnterior.
+    '''Control lblTarifa.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtAnterior As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents lblTarifa As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Control lblActual.
+    '''Control txtTarifa.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblActual As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents txtTarifa As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Control txtActual.
+    '''Control lblTotal.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtActual As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents lblTotal As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Control rfvActual.
+    '''Control txtTotal.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents rfvActual As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents txtTotal As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Control hfIdConsumo.
+    '''Control lblEstado.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents hfIdConsumo As Global.System.Web.UI.WebControls.HiddenField
+    Protected WithEvents lblEstado As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control ddlEstado.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents ddlEstado As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Control hfIdFactura.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents hfIdFactura As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
     '''Control btnGuardar.
@@ -158,20 +158,29 @@ Partial Public Class Consumo
     Protected WithEvents btnActualizar As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''Control gvConsumo.
+    '''Control gvFactura.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents gvConsumo As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents gvFactura As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
-    '''Control SqlDataSource1.
+    '''Control SqlDataSourceSuscriptor.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents SqlDataSource1 As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents SqlDataSourceSuscriptor As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''Control SqlDataSourceFactura.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SqlDataSourceFactura As Global.System.Web.UI.WebControls.SqlDataSource
 End Class
