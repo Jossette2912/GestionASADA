@@ -129,19 +129,21 @@
 
   
     
-    <asp:GridView ID="gvMedidores" runat="server" AutoGenerateColumns="False" DataKeyNames="Suscriptor" DataSourceID="SqlDataSource1" OnRowDeleting="gvMedidores_RowDeleting">
+    <asp:GridView ID="gvMedidores" runat="server" AutoGenerateColumns="False" DataKeyNames="Suscriptor" DataSourceID="SqlDataSource2" OnRowDeleting="gvMedidores_RowDeleting">
         <Columns>
-            <asp:BoundField DataField="Suscriptor" HeaderText="Suscriptor" InsertVisible="False" ReadOnly="True" SortExpression="Suscriptor" />
+            <asp:BoundField DataField="Suscriptor" HeaderText="Suscriptor" ReadOnly="True" SortExpression="Suscriptor" />
             <asp:BoundField DataField="Medidor" HeaderText="Medidor" SortExpression="Medidor" />
             <asp:BoundField DataField="Ubicacion" HeaderText="Ubicacion" SortExpression="Ubicacion" />
             <asp:BoundField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />
-            <asp:CommandField showDeleteButton="true" />
 
         </Columns>
     </asp:GridView>
 
 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:GestionAsadaConnectionString %>" ProviderName="<%$ ConnectionStrings:GestionAsadaConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Medidor]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ASADAConnectionString %>" ProviderName="<%$ ConnectionStrings:ASADAConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Medidor]"></asp:SqlDataSource>
+
+
+  
 
 
 </asp:Content>
