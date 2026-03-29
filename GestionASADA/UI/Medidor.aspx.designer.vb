@@ -59,33 +59,6 @@ Partial Public Class Medidor
     Protected WithEvents rfvsuscriptor As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''Control lblMedidor.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents lblMedidor As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Control txtMedidor.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents txtMedidor As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Control rfvmedidor.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents rfvmedidor As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
-    '''<summary>
     '''Control lblUbicacion.
     '''</summary>
     '''<remarks>

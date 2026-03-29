@@ -22,7 +22,10 @@
 
 <asp:SqlDataSource ID="SqlDataSourceSuscriptor" runat="server"
     ConnectionString="<%$ ConnectionStrings:ASADAConnectionString %>"
-    SelectCommand="SELECT SUSCRIPTORID, NOMBRE FROM SUSCRIPTOR">
+    SelectCommand="SELECT 
+            SUSCRIPTORID,
+            CONCAT(NOMBRE, ' ', PRIMER_APELLIDO, ' ', SEGUNDO_APELLIDO) AS DESCRIPCION
+        FROM SUSCRIPTOR">
 </asp:SqlDataSource>
     </div>
 
@@ -35,16 +38,16 @@
 
     <%--*************************   ID Medidor    *******************************--%>
     
-    <div class="form-group">
+<%--    <div class="form-group">
         <asp:Label ID="lblMedidor" runat="server" Text="ID de Medidor" CssClass="control-label"></asp:Label>
         <asp:TextBox ID="txtMedidor" runat="server" placeholder="0001" CssClass="form-control"></asp:TextBox>
-    </div>
+    </div>--%>
 
     <%--* Validacion medidor *--%>
-    <asp:RequiredFieldValidator ID="rfvmedidor" runat="server"
+<%--    <asp:RequiredFieldValidator ID="rfvmedidor" runat="server"
         ErrorMessage="Es necesario indicar el ID de Medidor."
         ControlToValidate="txtMedidor" Display="Dynamic" CssClass="text-danger">
-    </asp:RequiredFieldValidator>
+    </asp:RequiredFieldValidator>--%>
     
 
     <%--*************************   Ubucacion   *******************************--%>
@@ -94,11 +97,6 @@
     <%--  ********************************    Solo botones ******************************************** --%>
 
 
-<%--    <asp:Button ID="btnConsultar" runat="server" Text="Consultar" CssClass="btn btn-success my-2" OnClick="btnConsultar_Click" />
-    <asp:Button ID="btnInsertar" runat="server" Text="Insertar" CssClass="btn btn-success" OnClick="btnInsertar_Click" />
-    <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-success" />
-    <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" CssClass="btn btn-success" />
-    <asp:Button ID="Eliminar" runat="server" Text="Eliminar" CssClass="btn btn-success" />--%>
           <asp:HiddenField ID="hfIdMedidor" runat="server" />
 
         <asp:Button ID="btnGuardar" runat="server" Text="Guardar"
