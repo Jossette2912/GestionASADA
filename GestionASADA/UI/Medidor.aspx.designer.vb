@@ -14,22 +14,40 @@ Option Explicit On
 Partial Public Class Medidor
 
     '''<summary>
-    '''Control lblsuscriptor.
+    '''Control lblTitulo.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblsuscriptor As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblTitulo As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Control txtSuscriptor.
+    '''Control lblSuscriptor.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtSuscriptor As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents lblSuscriptor As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control ddlSuscriptor.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents ddlSuscriptor As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Control SqlDataSourceSuscriptor.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SqlDataSourceSuscriptor As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
     '''Control rfvsuscriptor.
@@ -95,22 +113,22 @@ Partial Public Class Medidor
     Protected WithEvents RequiredFieldValidator1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''Control lblEstadoActual.
+    '''Control lblEstado.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblEstadoActual As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblEstado As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Control ddlEstadoActual.
+    '''Control ddlEstado.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents ddlEstadoActual As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents ddlEstado As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''Control RequiredFieldValidator2.
@@ -122,74 +140,56 @@ Partial Public Class Medidor
     Protected WithEvents RequiredFieldValidator2 As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''Control lblResultado.
+    '''Control hfIdMedidor.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblResultado As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents hfIdMedidor As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
-    '''Control btnConsultar.
+    '''Control btnGuardar.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents btnConsultar As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnGuardar As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''Control btnInsertar.
+    '''Control btnActualizar.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents btnInsertar As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnActualizar As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''Control btnModificar.
+    '''Control gvMedidor.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents btnModificar As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents gvMedidor As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
-    '''Control btnLimpiar.
+    '''Control SqlDataSource1.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents btnLimpiar As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents SqlDataSource1 As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
-    '''Control Eliminar.
+    '''Control SqlDataSourceMedidorGrid.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents Eliminar As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''Control gvMedidores.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents gvMedidores As Global.System.Web.UI.WebControls.GridView
-
-    '''<summary>
-    '''Control SqlDataSource2.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents SqlDataSource2 As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents SqlDataSourceMedidorGrid As Global.System.Web.UI.WebControls.SqlDataSource
 End Class

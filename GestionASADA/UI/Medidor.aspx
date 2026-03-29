@@ -4,20 +4,32 @@
 
     <div class="form-container">
 
+        <asp:Label ID="lblTitulo" runat="server" Text="Gestión de Medidores" CssClass="titulo-principal"></asp:Label>
 
  <%--          https://github.com/DavidCc04/Gestion-ASADA/commits/master/                 --%>
-
+                <div class="form-grid">
     <%--*************************   ID suscriptor    *******************************--%>
 
     <div class="form-group">
-        <asp:Label ID="lblsuscriptor" runat="server" Text="ID de Suscriptor:" CssClass="control-label"></asp:Label>
-        <asp:TextBox ID="txtSuscriptor" runat="server" placeholder="001" CssClass="form-control"></asp:TextBox>
+        <asp:Label ID="lblSuscriptor" runat="server" Text="Suscriptor"></asp:Label>
+
+       <asp:DropDownList ID="ddlSuscriptor" runat="server"
+                    CssClass="form-control"
+                    DataSourceID="SqlDataSourceSuscriptor"
+                    DataTextField="DESCRIPCION"
+                    DataValueField="SUSCRIPTORID">
+</asp:DropDownList>
+
+<asp:SqlDataSource ID="SqlDataSourceSuscriptor" runat="server"
+    ConnectionString="<%$ ConnectionStrings:ASADAConnectionString %>"
+    SelectCommand="SELECT SUSCRIPTORID, NOMBRE FROM SUSCRIPTOR">
+</asp:SqlDataSource>
     </div>
 
     <%--* Validacion suscriptor *--%>
     <asp:RequiredFieldValidator ID="rfvsuscriptor" runat="server"
         ErrorMessage="Es necesario indicar el ID de suscriptor."
-        ControlToValidate="txtSuscriptor" Display="Dynamic" CssClass="text-danger">
+        ControlToValidate="ddlSuscriptor" Display="Dynamic" CssClass="text-danger">
     </asp:RequiredFieldValidator>
 
 
@@ -38,10 +50,10 @@
     <%--*************************   Ubucacion   *******************************--%>
   
     <div class="form-group">
-        <asp:Label ID="lblUbicacion" runat="server" Text="Ubicacion" CssClass="control-label"></asp:Label>
-        <asp:TextBox ID="txtUbicacion" runat="server" placeholder="San Francisco" CssClass="form-control"></asp:TextBox>
-        <%--<asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>--%>
-       
+                <asp:Label ID="lblUbicacion" runat="server" Text="Ubicación"></asp:Label>
+                <asp:TextBox ID="txtUbicacion" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+
         <%--* Validacion Ubicacion *--%>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
             ErrorMessage="Debe indicar la ubicacion del medidor."
@@ -53,24 +65,24 @@
     <%--*************************   Estado   *******************************--%>
   
     <div class="form-group">
-        <asp:Label ID="lblEstadoActual" runat="server" Text="Estado Actual" CssClass="control-label"></asp:Label>
-        <asp:DropDownList ID="ddlEstadoActual" runat="server" CssClass="form-control">
-            <asp:ListItem Text="Seleccione el estado actual" Value="" />
-            <asp:ListItem Text="ACTIVO" Value="1"></asp:ListItem>
-            <asp:ListItem Text="INACTIVO" Value="2" />
-            <asp:ListItem Text="MOROSO" Value="3" />
-        </asp:DropDownList>
-    </div>
+                <asp:Label ID="lblEstado" runat="server" Text="Estado"></asp:Label>
 
+                <asp:DropDownList ID="ddlEstado" runat="server" CssClass="form-control">
+                    <asp:ListItem Text="Activo" Value="1" />
+                    <asp:ListItem Text="Inactivo" Value="2" />
+                </asp:DropDownList>
+            </div>
+
+        
     <%--* Validacion Estado *--%>
     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
         ErrorMessage="Es necesario indicar el estado del medidor."
-        ControlToValidate="ddlEstadoActual" InitialValue=""  Display="Dynamic"  CssClass="text-danger"> 
+        ControlToValidate="ddlEstado" InitialValue=""  Display="Dynamic"  CssClass="text-danger"> 
     </asp:RequiredFieldValidator>
     <br />
     <br />
 
-    <asp:Label ID="lblResultado" runat="server" Text="Resultado:" CssClass="control-label"></asp:Label>
+    <%--<asp:Label ID="lblResultado" runat="server" Text="Resultado:" CssClass="control-label"></asp:Label>--%>
 
     <%--Agrega una linea en blanco     <hr class="my-3" />                  --%>
     <%--<br />                                          Espacio sin linea      --%>
@@ -82,12 +94,81 @@
     <%--  ********************************    Solo botones ******************************************** --%>
 
 
-    <asp:Button ID="btnConsultar" runat="server" Text="Consultar" CssClass="btn btn-success my-2" OnClick="btnConsultar_Click" />
+<%--    <asp:Button ID="btnConsultar" runat="server" Text="Consultar" CssClass="btn btn-success my-2" OnClick="btnConsultar_Click" />
     <asp:Button ID="btnInsertar" runat="server" Text="Insertar" CssClass="btn btn-success" OnClick="btnInsertar_Click" />
     <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-success" />
     <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" CssClass="btn btn-success" />
-    <asp:Button ID="Eliminar" runat="server" Text="Eliminar" CssClass="btn btn-success" />
+    <asp:Button ID="Eliminar" runat="server" Text="Eliminar" CssClass="btn btn-success" />--%>
+          <asp:HiddenField ID="hfIdMedidor" runat="server" />
 
+        <asp:Button ID="btnGuardar" runat="server" Text="Guardar"
+            CssClass="btn btn-primary my-2"
+            OnClick="btnGuardar_Click" />
+
+        <asp:Button ID="btnActualizar" runat="server" Text="Actualizar"
+            CssClass="btn btn-warning"
+            OnClick="btnActualizar_Click"
+            Visible="false" />
+
+        <div class="table-wrapper">
+
+            <asp:GridView ID="gvMedidor" runat="server"
+                CssClass="table table-striped table-hover"
+                HeaderStyle-CssClass="table-primary"
+                AutoGenerateColumns="False"
+                DataKeyNames="MEDIDORID"
+                DataSourceID="SqlDataSourceMedidorGrid"
+                OnSelectedIndexChanged="gvMedidor_SelectedIndexChanged"
+                OnRowDeleting="gvMedidor_RowDeleting">
+
+                <Columns>
+
+
+                    <asp:CommandField ShowSelectButton="True"
+                        ControlStyle-CssClass="btn btn-primary"
+                        SelectText="<i class='bi bi-pencil'></i>" />
+
+
+                    <asp:BoundField DataField="MEDIDORID" HeaderText="ID" ReadOnly="True" />
+                    <asp:BoundField DataField="DESCRIPCION" HeaderText="Suscriptor" />
+                    <asp:BoundField DataField="UBICACION" HeaderText="Ubicación" />
+                    <asp:BoundField DataField="ESTADO" HeaderText="Estado" />
+
+
+                    <asp:CommandField ShowDeleteButton="True"
+                        ControlStyle-CssClass="btn btn-danger"
+                        DeleteText="<i class='bi bi-trash'></i>" />
+
+                </Columns>
+
+            </asp:GridView>
+
+        </div>
+
+        <!-- 🔹 DataSource Suscriptor -->
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server"
+            ConnectionString="<%$ ConnectionStrings:ASADAConnectionString %>"
+            SelectCommand="
+                SELECT 
+                    SUSCRIPTORID,
+                    CONCAT(NOMBRE, ' ', PRIMER_APELLIDO, ' ', SEGUNDO_APELLIDO) AS DESCRIPCION
+                FROM SUSCRIPTOR">
+        </asp:SqlDataSource>
+
+        <!-- 🔹 DataSource Grid -->
+        <asp:SqlDataSource ID="SqlDataSourceMedidorGrid" runat="server"
+            ConnectionString="<%$ ConnectionStrings:ASADAConnectionString %>"
+            SelectCommand="
+                SELECT 
+                    M.MEDIDORID,
+                    M.UBICACION,
+                    M.ESTADO,
+                    CONCAT(S.NOMBRE, ' ', S.PRIMER_APELLIDO, ' ', S.SEGUNDO_APELLIDO) AS DESCRIPCION
+                FROM MEDIDOR M
+                INNER JOIN SUSCRIPTOR S ON M.SUSCRIPTORID = S.SUSCRIPTORID">
+        </asp:SqlDataSource>
+
+    </div>
 
     <%--  *******************************    cuadro para los botones   ************************************** --%>
 
@@ -131,7 +212,7 @@
 
   
     
-    <asp:GridView ID="gvMedidores" runat="server" AutoGenerateColumns="False" DataKeyNames="Suscriptor" DataSourceID="SqlDataSource2" OnRowDeleting="gvMedidores_RowDeleting">
+    <%--<asp:GridView ID="gvMedidores" runat="server" AutoGenerateColumns="False" DataKeyNames="Suscriptor" DataSourceID="SqlDataSource2" OnRowDeleting="gvMedidores_RowDeleting">
         <Columns>
             <asp:BoundField DataField="Suscriptor" HeaderText="Suscriptor" ReadOnly="True" SortExpression="Suscriptor" />
             <asp:BoundField DataField="Medidor" HeaderText="Medidor" SortExpression="Medidor" />
@@ -147,7 +228,7 @@
 
   
 
-        </div>
+        </div>--%>
 </asp:Content>
 
 

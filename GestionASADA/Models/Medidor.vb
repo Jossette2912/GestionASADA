@@ -1,40 +1,31 @@
 ﻿Namespace Models
 
     Public Class Medidor
-
-        Private _suscriptor As String
-        Private _medidor As Integer
+        Private _idMedidor As Integer
+        Private _suscriptorId As Integer
         Private _ubicacion As String
-        Private _estado As String
+        Private _estado As Integer
 
 
         Public Sub New()
         End Sub
 
-        Public Sub New(medidor As Integer, suscriptor As String, ubicacion As String, estado As String)
 
-            _suscriptor = suscriptor
-            _medidor = medidor
-            _ubicacion = ubicacion
-            _estado = estado
-
-        End Sub
-
-        Public Property Suscriptor As String
+        Public Property IdMedidor As Integer
             Get
-                Return _suscriptor
+                Return _idMedidor
             End Get
-            Set(value As String)
-                _suscriptor = value
+            Set(value As Integer)
+                _idMedidor = value
             End Set
         End Property
 
-        Public Property Medidor As Integer
+        Public Property SuscriptorId As Integer
             Get
-                Return _medidor
+                Return _suscriptorId
             End Get
             Set(value As Integer)
-                _medidor = value
+                _suscriptorId = value
             End Set
         End Property
 
@@ -47,20 +38,14 @@
             End Set
         End Property
 
-        Public Property Estado As String
+        Public Property Estado As Integer
             Get
                 Return _estado
             End Get
-            Set(value As String)
+            Set(value As Integer)
                 _estado = value
             End Set
         End Property
-
-
-        Public Function Resumen() As String
-            Return $"Medidor: {Suscriptor} -  {Medidor} - {Ubicacion} - {Estado}"
-        End Function
-
     End Class
 
 

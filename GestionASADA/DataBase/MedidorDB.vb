@@ -11,34 +11,51 @@ Public Class MedidorDB
     Private db As New DbHelper()
     'crear medidor
 
-    Public Function CrearMedidor(ByVal pMedidor As Models.Medidor, ByRef errorMessage As String) As Boolean
-        'logica para crear un nuevo medidor en la base de datos
+    Public Function CrearMedidor(medidor As Models.Medidor, ByRef errorMessage As String) As Boolean
 
-        Using db.GetConnection()
-            Dim query As String = "
-            INSERT INTO medidor (Suscriptor, Medidor, Ubicacion, Estado) 
-            VALUES (@Suscriptor, @Medidor, @Ubicacion, @Estado)"
+        Dim query As String = "INSERT INTO MEDIDOR (SUSCRIPTORID, UBICACION, ESTADO) 
+                              VALUES (@SUSCRIPTORID, @UBICACION, @ESTADO)"
 
-            Dim parameters As New Dictionary(Of String, Object) From {
-             {"@Suscriptor", pMedidor.Suscriptor},
-             {"@Medidor", pMedidor.Medidor},
-            {"@Ubicacion", pMedidor.Ubicacion},
-            {"@Estado", pMedidor.Estado}
-            }
+        Dim parameters As New Dictionary(Of String, Object) From {
+            {"@SUSCRIPTORID", medidor.SuscriptorId},
+            {"@UBICACION", medidor.Ubicacion},
+            {"@ESTADO", medidor.Estado}
+        }
 
-            Return db.ExecuteNonQuery(query, parameters, errorMessage)
+        Return db.ExecuteNonQuery(query, parameters, errorMessage)
 
-        End Using
-        Return True
     End Function
 
-    Public Function eliminarMedidor(ByVal Medidor As Integer, ByRef errorMessage As String) As Boolean
 
-        Dim query As String = "DELETE FROM medidor WHERE Medidor = @Medidor"
+    Public Function EliminarMedidor(id As Integer, ByRef errorMessage As String) As Boolean
+
+        Dim query As String = "DELETE FROM MEDIDOR WHERE MEDIDORID = @ID"
+
         Dim parameters As New Dictionary(Of String, Object) From {
-                {"@Medidor", Medidor}
-            }
+            {"@ID", id}
+        }
+
         Return db.ExecuteNonQuery(query, parameters, errorMessage)
+
+    End Function
+
+    Public Function ActualizarMedidor(medidor As Models.Medidor, ByRef errorMessage As String) As Boolean
+
+        Dim query As String = "UPDATE MEDIDOR SET 
+                              SUSCRIPTORID=@SUSCRIPTORID,
+                              UBICACION=@UBICACION,
+                              ESTADO=@ESTADO
+                              WHERE MEDIDORID=@MEDIDORID"
+
+        Dim parameters As New Dictionary(Of String, Object) From {
+            {"@SUSCRIPTORID", medidor.SuscriptorId},
+            {"@UBICACION", medidor.Ubicacion},
+            {"@ESTADO", medidor.Estado},
+            {"@MEDIDORID", medidor.IdMedidor}
+        }
+
+        Return db.ExecuteNonQuery(query, parameters, errorMessage)
+
     End Function
 
 End Class
