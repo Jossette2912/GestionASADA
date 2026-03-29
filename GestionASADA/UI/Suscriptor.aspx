@@ -137,7 +137,7 @@
                     <asp:BoundField DataField="PRIMER_APELLIDO" HeaderText="PRIMER_APELLIDO" SortExpression="PRIMER_APELLIDO" />
                     <asp:BoundField DataField="SEGUNDO_APELLIDO" HeaderText="SEGUNDO_APELLIDO" SortExpression="SEGUNDO_APELLIDO" />
                     <asp:BoundField DataField="DIRECCION" HeaderText="DIRECCION" SortExpression="DIRECCION" />
-                    <asp:BoundField DataField="FECHANAC" HeaderText="FECHANAC" SortExpression="FECHANAC" />
+                    <asp:BoundField DataField="FECHANAC" HeaderText="FECHANAC" SortExpression="FECHANAC" DataFormatString="{0:dd/MM/yyyy}"/>
                     <asp:BoundField DataField="TELEFONO" HeaderText="TELEFONO" SortExpression="TELEFONO" />
                     <asp:BoundField DataField="CORREO" HeaderText="CORREO" SortExpression="CORREO" />
                     <asp:BoundField DataField="ESTADO" HeaderText="ESTADO" SortExpression="ESTADO" />

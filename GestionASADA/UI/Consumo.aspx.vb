@@ -88,7 +88,31 @@ Public Class Consumo
         End If
     End Sub
 
-    Protected Sub ddlMedidor_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlMedidor.SelectedIndexChanged
+    Protected Sub ddlMedidor_SelectedIndexChanged(sender As Object, e As EventArgs)
+        If ddlMedidor.SelectedValue = "" Then
+            txtAnterior.Text = ""
+            Return
+        End If
 
+        Dim medidorId As Integer = Convert.ToInt32(ddlMedidor.SelectedValue)
+        Dim errorMessage As String = ""
+
+        Dim query As String = "
+        SELECT TOP 1 LECTURAACTUAL 
+        FROM CONSUMO 
+        WHERE MEDIDORID = @MEDIDORID 
+        ORDER BY FECHALECTURA DESC"
+
+        Dim parameters As New Dictionary(Of String, Object) From {
+            {"@MEDIDORID", medidorId}
+        }
+
+        Dim dt As DataTable = (New DbHelper()).ExecuteQuery(query, parameters, errorMessage)
+
+        If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
+            txtAnterior.Text = dt.Rows(0)("LECTURAACTUAL").ToString()
+        Else
+            txtAnterior.Text = "0"
+        End If
     End Sub
 End Class
