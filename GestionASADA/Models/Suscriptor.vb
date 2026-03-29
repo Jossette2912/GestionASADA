@@ -2,6 +2,7 @@
 'con la clase persona que se encuentra en el proyecto de GestionASADA, esta clase se
 'utiliza para representar a los suscriptores de las ASADA
 Namespace Models
+
     Public Class Suscriptor
         Private _nombre As String
         Private _apellido1 As String
@@ -13,6 +14,7 @@ Namespace Models
         Private _direccion As String
         Private _telefono As Integer
         Private _estado As String
+        Private _idSuscriptor As Integer
 
 
         'Constructor Vacio
@@ -119,6 +121,15 @@ Namespace Models
             End Get
             Set(value As String)
                 _estado = value
+            End Set
+        End Property
+
+        Public Property IdSuscriptor As Integer
+            Get
+                Return _idSuscriptor
+            End Get
+            Set(value As Integer)
+                _idSuscriptor = value
             End Set
         End Property
 

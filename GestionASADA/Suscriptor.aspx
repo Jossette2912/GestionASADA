@@ -116,9 +116,11 @@
             </div>
 
         </div>
+        <asp:HiddenField ID="hfIdSuscriptor" runat="server" />
 
         <%--    <asp:Label ID="lblResultado" runat="server" Text="Resultado" CssClass="control-label"></asp:Label>--%>
         <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-primary my-2" OnClick="btnGuardar_Click" />
+        <asp:Button ID="btnActualizar" runat="server" Text="Actualizar" CssClass="btn btn-warning" OnClick="btnActualizar_Click" Visible="false" />
 
         <div class="table-wrapper">
             <asp:GridView ID="gvSuscriptor" CssClass="table table-striped table-hover" HeaderStyle-CssClass="table-primary"
@@ -128,7 +130,7 @@
 
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" ControlStyle-CssClass="btn btn-primary" SelectText="<i class='bi bi-pencil'>" />
-                    <asp:BoundField DataField="SUSCRIPTORID" Visible="False" HeaderText="SUSCRIPTORID" InsertVisible="False" ReadOnly="True" SortExpression="SUSCRIPTORID" />
+                    <asp:BoundField DataField="SUSCRIPTORID" ControlStyle-CssClass="d-none" HeaderText="SUSCRIPTORID" InsertVisible="False" ReadOnly="True" SortExpression="SUSCRIPTORID" />
                     <asp:BoundField DataField="TIPO_IDENTIFICACION"  HeaderText="TIPO_IDENTIFICACION" SortExpression="TIPO_IDENTIFICACION" />
                     <asp:BoundField DataField="IDENTIFICACION" HeaderText="IDENTIFICACION" SortExpression="IDENTIFICACION" />
                     <asp:BoundField DataField="NOMBRE" HeaderText="NOMBRE" SortExpression="NOMBRE" />

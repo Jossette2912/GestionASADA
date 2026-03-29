@@ -40,7 +40,7 @@ Public Class DbHelper
         End Using
     End Function
 
-    Public Function ExecuteQuery(query As String, parameters As Dictionary(Of String, Object), errorMessage As String) As DataTable
+    Public Function ExecuteQuery(query As String, parameters As Dictionary(Of String, Object), ByRef errorMessage As String) As DataTable
         'Validar que la consulta no esté vacía
         If String.IsNullOrWhiteSpace(query) Then
             Throw New ArgumentException("La consulta no puede estar vacía")
