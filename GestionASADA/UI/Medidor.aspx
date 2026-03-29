@@ -2,6 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
+    <div class="form-container">
+
 
  <%--          https://github.com/DavidCc04/Gestion-ASADA/commits/master/                 --%>
 
@@ -145,7 +147,7 @@
 
   
 
-
+        </div>
 </asp:Content>
 
 
