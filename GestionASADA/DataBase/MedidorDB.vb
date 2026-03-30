@@ -58,4 +58,48 @@ Public Class MedidorDB
 
     End Function
 
+    Public Function ConsultarMedidor(id As Integer, ByRef errorMessage As String) As Models.Medidor
+
+        Dim query As String = "SELECT * FROM MEDIDOR WHERE MEDIDORID = @ID"
+
+        Dim parameters As New Dictionary(Of String, Object) From {
+            {"@ID", id}
+        }
+
+        Dim dt As DataTable = db.ExecuteQuery(query, parameters, errorMessage)
+
+        If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
+            Dim row As DataRow = dt.Rows(0)
+
+            Dim m As New Models.Medidor() With {
+                .IdMedidor = Convert.ToInt32(row("MEDIDORID")),
+                .SuscriptorId = Convert.ToInt32(row("SUSCRIPTORID")),
+                .Ubicacion = row("UBICACION").ToString(),
+                .Estado = row("ESTADO").ToString()
+            }
+
+            Return m
+        End If
+
+        Return Nothing
+    End Function
+
+    Public Function TieneConsumos(medidorId As Integer) As Boolean
+
+        Dim query As String = "SELECT COUNT(*) FROM CONSUMO WHERE MEDIDORID = @ID"
+
+        Dim parameters As New Dictionary(Of String, Object) From {
+            {"@ID", medidorId}
+        }
+
+        Dim dt As DataTable = db.ExecuteQuery(query, parameters, Nothing)
+
+        If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
+            Return Convert.ToInt32(dt.Rows(0)(0)) > 0
+        End If
+
+        Return False
+    End Function
+
+
 End Class

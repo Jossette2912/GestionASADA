@@ -94,7 +94,21 @@ Public Class Medidor
     Protected Sub gvMedidor_SelectedIndexChanged(sender As Object, e As EventArgs)
         hfIdMedidor.Value = gvMedidor.DataKeys(gvMedidor.SelectedIndex).Value
 
-        txtUbicacion.Text = gvMedidor.SelectedRow.Cells(3).Text
+        Dim id As Integer = Convert.ToInt32(hfIdMedidor.Value)
+
+        Dim errorMessage As String = ""
+        Dim db As New MedidorDB()
+
+        Dim medidor As Models.Medidor = db.ConsultarMedidor(id, errorMessage)
+
+        If medidor Is Nothing Then
+            SwalUtils.ShowSwalError(Me, If(errorMessage = "", "No se pudo cargar el medidor.", errorMessage))
+            Return
+        End If
+
+        ddlSuscriptor.SelectedValue = medidor.SuscriptorId.ToString()
+        txtUbicacion.Text = medidor.Ubicacion
+        ddlEstado.SelectedValue = medidor.Estado.ToString()
 
         btnGuardar.Visible = False
         btnActualizar.Visible = True
@@ -108,14 +122,22 @@ Public Class Medidor
         Dim id As Integer = Convert.ToInt32(gvMedidor.DataKeys(e.RowIndex).Value)
         Dim errorMessage As String = ""
 
+        Dim db As New MedidorDB()
+
+        If db.TieneConsumos(id) Then
+            SwalUtils.ShowSwalError(Me, "No se puede eliminar este medidor porque tiene lecturas registradas.")
+            Return
+        End If
+
         Dim resultado = db.EliminarMedidor(id, errorMessage)
 
         If resultado Then
-            SwalUtils.ShowSwal(Me, "Eliminado correctamente")
+            SwalUtils.ShowSwal(Me, "Medidor eliminado")
             gvMedidor.DataBind()
         Else
             SwalUtils.ShowSwalError(Me, errorMessage)
         End If
+
     End Sub
 
     Private Sub LimpiarCampos()

@@ -78,4 +78,25 @@ Public Class SuscriptorDB
         Return db.ExecuteNonQuery(query, parameters, errorMessage)
 
     End Function
+
+    Public Function TieneRelaciones(suscriptorId As Integer) As Boolean
+
+        Dim query As String = "
+        SELECT 
+            (SELECT COUNT(*) FROM MEDIDOR WHERE SUSCRIPTORID = @ID) +
+            (SELECT COUNT(*) FROM FACTURA WHERE SUSCRIPTORID = @ID)
+        "
+
+        Dim parameters As New Dictionary(Of String, Object) From {
+            {"@ID", suscriptorId}
+        }
+
+        Dim dt As DataTable = db.ExecuteQuery(query, parameters, Nothing)
+
+        If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
+            Return Convert.ToInt32(dt.Rows(0)(0)) > 0
+        End If
+
+        Return False
+    End Function
 End Class

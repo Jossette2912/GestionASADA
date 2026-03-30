@@ -40,13 +40,23 @@ Public Class Suscriptor
 
 
     Protected Sub gvSuscriptor_RowDeleting(sender As Object, e As GridViewDeleteEventArgs)
-        e.Cancel = True ' Cancelar la eliminación predeterminada del GridView
+        e.Cancel = True
+
         Dim id As Integer = Convert.ToInt32(gvSuscriptor.DataKeys(e.RowIndex).Value)
         Dim errorMessage As String = ""
+
+        Dim db As New SuscriptorDB()
+
+        If db.TieneRelaciones(id) Then
+            SwalUtils.ShowSwalError(Me, "No se puede eliminar el suscriptor porque tiene medidores o facturas asociadas")
+            Return
+        End If
+
         Dim resultado = db.EliminarSuscriptor(id, errorMessage)
+
         If resultado Then
-            SwalUtils.ShowSwal(Me, "Suscriptor eliminado exitosamente.")
-            gvSuscriptor.DataBind() ' Refrescar el GridView después de eliminar
+            SwalUtils.ShowSwal(Me, "Suscriptor eliminado")
+            gvSuscriptor.DataBind()
         Else
             SwalUtils.ShowSwalError(Me, errorMessage)
         End If
