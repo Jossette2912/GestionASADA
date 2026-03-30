@@ -245,9 +245,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Consumo.vb" />
-<<<<<<< HEAD
     <Compile Include="Models\Persona.vb" />
     <Compile Include="Models\Usuarios.vb" />
+    <Compile Include="Models\Factura.vb" />
     <Compile Include="UILogin\Login.aspx.designer.vb">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
@@ -262,9 +262,7 @@
       <DependentUpon>Registro.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-=======
     <Compile Include="Models\Factura.vb" />
->>>>>>> c52eb5f9372851b33a9846058bf05a1868a4ca7b
     <Compile Include="UI\Consumo.aspx.designer.vb">
       <DependentUpon>Consumo.aspx</DependentUpon>
     </Compile>
