@@ -145,12 +145,14 @@
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Estilos\estilos.css" />
+    <Content Include="Estilos\Home.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="UILogin\Login.aspx" />
     <Content Include="UILogin\Registro.aspx" />
     <Content Include="UI\Consumo.aspx" />
     <Content Include="UI\Factura.aspx" />
+    <Content Include="UI\Home.aspx" />
     <Content Include="UI\Medidor.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -274,6 +276,13 @@
     </Compile>
     <Compile Include="UI\Factura.aspx.vb">
       <DependentUpon>Factura.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="UI\Home.aspx.designer.vb">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Home.aspx.vb">
+      <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="UI\Medidor.aspx.designer.vb">

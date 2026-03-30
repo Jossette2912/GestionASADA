@@ -117,3 +117,39 @@ span[style*="color:Red"] {
 .full-width {
     grid-column: span 2;
 }
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.menu-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    transition: 0.2s;
+}
+
+    .menu-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 6px 18px rgba(0,0,0,0.15);
+    }
+
+    .menu-card h4 {
+        margin-top: 10px;
+    }
+
+    .menu-card p {
+        font-size: 14px;
+        color: #6c757d;
+    }
+
+.icon {
+    font-size: 30px;
+}
