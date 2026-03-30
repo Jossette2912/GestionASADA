@@ -70,4 +70,8 @@ Public Class DbHelper
         End Using
         Return Nothing
     End Function
+
+    Friend Function ExecuteScalar(query As String, parameters As Dictionary(Of String, Object), errorMessage As String) As Object
+        Throw New NotImplementedException()
+    End Function
 End Class

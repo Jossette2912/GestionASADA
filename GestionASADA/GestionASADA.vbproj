@@ -147,6 +147,8 @@
     <Content Include="Estilos\estilos.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="UILogin\Login.aspx" />
+    <Content Include="UILogin\Registro.aspx" />
     <Content Include="UI\Consumo.aspx" />
     <Content Include="UI\Medidor.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -228,6 +230,8 @@
     <Compile Include="DataBase\ConsumoDB.vb" />
     <Compile Include="DataBase\MedidorDB.vb" />
     <Compile Include="DataBase\SuscriptorDB.vb" />
+    <Compile Include="DataBase\UsuarioDBvb.vb" />
+    <Compile Include="Data\PersonaDB.vb" />
     <Compile Include="Default.aspx.vb">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -239,6 +243,22 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Consumo.vb" />
+    <Compile Include="Models\Persona.vb" />
+    <Compile Include="Models\Usuarios.vb" />
+    <Compile Include="UILogin\Login.aspx.designer.vb">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UILogin\Login.aspx.vb">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="UILogin\Registro.aspx.designer.vb">
+      <DependentUpon>Registro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UILogin\Registro.aspx.vb">
+      <DependentUpon>Registro.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="UI\Consumo.aspx.designer.vb">
       <DependentUpon>Consumo.aspx</DependentUpon>
     </Compile>
@@ -289,6 +309,8 @@
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Utils\DbHelper.vb" />
+    <Compile Include="Utils\ErrorLogger.vb" />
+    <Compile Include="Utils\Simple3Des.vb" />
     <Compile Include="Utils\SwalUtils.vb" />
     <Compile Include="ViewSwitcher.ascx.vb">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
