@@ -50,6 +50,15 @@ Partial Public Class Consumo
     Protected WithEvents SqlDataSourceMedidor As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
+    '''Control rfvMedidor.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents rfvMedidor As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
     '''Control lblFecha.
     '''</summary>
     '''<remarks>
@@ -66,6 +75,15 @@ Partial Public Class Consumo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents txtFecha As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control rfvFecha.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents rfvFecha As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''Control lblAnterior.
@@ -102,6 +120,15 @@ Partial Public Class Consumo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents txtActual As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control rfvActual.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents rfvActual As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''Control hfIdConsumo.

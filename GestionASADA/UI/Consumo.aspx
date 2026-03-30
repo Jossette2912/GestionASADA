@@ -7,17 +7,25 @@
         <div class="form-grid">
             <div class="form-group">
                 <asp:Label ID="lblMedidor" runat="server" Text="Medidor"></asp:Label>
-                <asp:DropDownList ID="ddlMedidor" runat="server" CssClass="form-control" DataSourceID="SqlDataSourceMedidor" DataTextField="DESCRIPCION" 
-                    DataValueField="MEDIDORID" AutoPostBack="true" OnSelectedIndexChanged="ddlMedidor_SelectedIndexChanged"></asp:DropDownList>
+                <asp:DropDownList ID="ddlMedidor" runat="server" CssClass="form-control" DataSourceID="SqlDataSourceMedidor" DataTextField="DESCRIPCION"  AppendDataBoundItems="true"
+                    DataValueField="MEDIDORID" AutoPostBack="true" OnSelectedIndexChanged="ddlMedidor_SelectedIndexChanged">
+                    <asp:ListItem Text="Seleccione un medidor" Value="" />
+                </asp:DropDownList>
 
                 <asp:SqlDataSource ID="SqlDataSourceMedidor" runat="server"
                     ConnectionString="<%$ ConnectionStrings:ASADAConnectionString %>"
                     SelectCommand="SELECT * FROM VW_MEDIDOR_DESCRIPCION"></asp:SqlDataSource>
+                <asp:RequiredFieldValidator ID="rfvMedidor" runat="server"
+    ErrorMessage="Es necesario seleccionar un medidor"
 
+    ControlToValidate="ddlMedidor" Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
             <div class="form-group">
                 <asp:Label ID="lblFecha" runat="server" Text="Fecha Lectura"></asp:Label>
                 <asp:TextBox ID="txtFecha" runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvFecha" runat="server"
+    ErrorMessage="Es necesario seleccionar la fecha"
+    ControlToValidate="txtFecha" Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
             <div class="form-group">
                 <asp:Label ID="lblAnterior" runat="server" Text="Lectura Anterior"></asp:Label>
@@ -26,6 +34,9 @@
             <div class="form-group">
                 <asp:Label ID="lblActual" runat="server" Text="Lectura Actual"></asp:Label>
                 <asp:TextBox ID="txtActual" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvActual" runat="server"
+    ErrorMessage="Es necesario indicar la lectura actual"
+    ControlToValidate="txtActual" Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
         </div>
         <asp:HiddenField ID="hfIdConsumo" runat="server" />

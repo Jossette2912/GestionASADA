@@ -27,6 +27,7 @@ Public Class Consumo
         If resultado Then
             SwalUtils.ShowSwal(Me, "Consumo guardado")
             gvConsumo.DataBind()
+            LimpiarCampos()
         Else
             SwalUtils.ShowSwalError(Me, errorMessage)
         End If
@@ -56,6 +57,7 @@ Public Class Consumo
             gvConsumo.DataBind()
             btnGuardar.Visible = True
             btnActualizar.Visible = False
+            LimpiarCampos()
         Else
             SwalUtils.ShowSwalError(Me, errorMessage)
         End If
@@ -64,28 +66,25 @@ Public Class Consumo
     Protected Sub gvConsumo_SelectedIndexChanged(sender As Object, e As EventArgs)
         hfIdConsumo.Value = gvConsumo.DataKeys(gvConsumo.SelectedIndex).Value
 
-        txtAnterior.Text = gvConsumo.SelectedRow.Cells(4).Text
-        txtActual.Text = gvConsumo.SelectedRow.Cells(5).Text
+        Dim id As Integer = Convert.ToInt32(hfIdConsumo.Value)
+
+        Dim errorMessage As String = ""
+        Dim db As New ConsumoDB()
+
+        Dim consumo As Models.Consumo = db.ConsultarConsumo(id, errorMessage)
+
+        If consumo Is Nothing Then
+            SwalUtils.ShowSwalError(Me, If(errorMessage = "", "No se pudo cargar el consumo.", errorMessage))
+            Return
+        End If
+
+        ddlMedidor.SelectedValue = consumo.MedidorId.ToString()
+        txtFecha.Text = consumo.FechaLectura.ToString("yyyy-MM-dd")
+        txtAnterior.Text = consumo.LecturaAnterior.ToString()
+        txtActual.Text = consumo.LecturaActual.ToString()
 
         btnGuardar.Visible = False
         btnActualizar.Visible = True
-    End Sub
-
-    Protected Sub gvConsumo_RowDeleting(sender As Object, e As GridViewDeleteEventArgs)
-        e.Cancel = True
-
-        Dim id As Integer = Convert.ToInt32(gvConsumo.DataKeys(e.RowIndex).Value)
-        Dim errorMessage As String = ""
-
-        Dim db As New ConsumoDB()
-        Dim resultado = db.EliminarConsumo(id, errorMessage)
-
-        If resultado Then
-            SwalUtils.ShowSwal(Me, "Eliminado correctamente")
-            gvConsumo.DataBind()
-        Else
-            SwalUtils.ShowSwalError(Me, errorMessage)
-        End If
     End Sub
 
     Protected Sub ddlMedidor_SelectedIndexChanged(sender As Object, e As EventArgs)
@@ -114,5 +113,33 @@ Public Class Consumo
         Else
             txtAnterior.Text = "0"
         End If
+    End Sub
+
+    Private Sub LimpiarCampos()
+
+        ddlMedidor.SelectedIndex = 0
+        txtFecha.Text = ""
+        txtAnterior.Text = ""
+        txtActual.Text = ""
+
+
+    End Sub
+
+    Protected Sub gvConsumo_RowDeleting(sender As Object, e As GridViewDeleteEventArgs)
+        e.Cancel = True
+
+        Dim id As Integer = Convert.ToInt32(gvConsumo.DataKeys(e.RowIndex).Value)
+        Dim errorMessage As String = ""
+
+        Dim db As New ConsumoDB()
+        Dim resultado = db.EliminarConsumo(id, errorMessage)
+
+        If resultado Then
+            SwalUtils.ShowSwal(Me, "Consumo eliminado")
+            gvConsumo.DataBind()
+        Else
+            SwalUtils.ShowSwalError(Me, errorMessage)
+        End If
+
     End Sub
 End Class
