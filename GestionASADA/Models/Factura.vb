@@ -8,6 +8,19 @@
         Private _total As Decimal
         Private _estado As String
 
+        Public Sub New()
+        End Sub
+
+        Public Sub New(idFactura As Integer, suscriptorId As Integer, fecha As Date, consumo As Integer, tarifa As Decimal, total As Decimal, estado As String)
+            _idFactura = idFactura
+            _suscriptorId = suscriptorId
+            _fecha = fecha
+            _consumo = consumo
+            _tarifa = tarifa
+            _total = total
+            _estado = estado
+        End Sub
+
         Public Property IdFactura As Integer
             Get
                 Return _idFactura
@@ -70,18 +83,24 @@
                 _estado = value
             End Set
         End Property
+
         Public Function CalcularTotal(ByRef errorMessage As String) As Boolean
-            If Consumo >= 0 AndAlso Tarifa > 0 Then
-                _total = Consumo * Tarifa
+
+            Try
+                If Consumo < 0 OrElse Tarifa < 0 Then
+                    errorMessage = "El consumo y la tarifa deben ser valores positivos."
+                    Return False
+                End If
+
+                Total = Consumo * Tarifa
                 Return True
-            Else
-                errorMessage = "Datos inválidos para calcular el total"
+
+            Catch ex As Exception
+                errorMessage = "Error al calcular el total: " & ex.Message
                 Return False
-            End If
+            End Try
+
         End Function
     End Class
-
-
-
 End Namespace
 
