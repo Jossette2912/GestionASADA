@@ -145,9 +145,13 @@
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Estilos\estilos.css" />
+    <Content Include="Estilos\fondoGif.css" />
     <Content Include="Estilos\Home.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Imagenes\cenote.gif" />
+    <Content Include="Imagenes\luzrefactada.gif" />
+    <Content Include="Imagenes\luzrefractadaslow.gif" />
     <Content Include="UILogin\Login.aspx" />
     <Content Include="UILogin\Registro.aspx" />
     <Content Include="UI\Consumo.aspx" />
