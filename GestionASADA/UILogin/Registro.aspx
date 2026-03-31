@@ -8,6 +8,7 @@
 
     <link href="/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="/Estilos/Home.css" rel="stylesheet" />
+    <link href="/Estilos/fondoGif.css" rel="stylesheet" />
 
     <style>
         body {
