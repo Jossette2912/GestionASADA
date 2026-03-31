@@ -3,78 +3,84 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Iniciar Sesión</title>
+    <title>Login</title>
 
-    <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/bundles/modernizr") %>
-    </asp:PlaceHolder>
-
-    <webopt:BundleReference runat="server" Path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Estilos/Home.css" rel="stylesheet" />
 
     <style>
-        .form-floating > .form-control {
-            height: 58px;
-            min-height: 58px;
-            padding: 1rem 0.75rem;
-            width: 100% !important;
+        body {
+            background-color: #f4f6f9;
         }
 
-        .form-floating > label {
-            padding: 1rem 0.75rem;
+        .login-card {
+            max-width: 400px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .login-card h2 {
+            margin-bottom: 25px;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            height: 45px;
+        }
+
+        .btn-login {
+            background-color: #1ECECB;
+            border: none;
+            border-radius: 10px;
+            height: 45px;
+            font-weight: bold;
+        }
+
+        .btn-login:hover {
+            background-color: #159f9c;
         }
     </style>
 </head>
-<body class="bg-light">
+
+<body>
     <form id="form1" runat="server">
-        <div class="container min-vh-100 d-flex align-items-center justify-content-center py-4">
-            <div class="card shadow-lg border-0 rounded-4 w-100" style="max-width: 500px;">
 
-                <div class="card-header text-center text-white rounded-top-4 border-0 py-4"
-                    style="background: linear-gradient(135deg, #1ECECB, #159f9c);">
-                    <h2 class="mb-1 fw-bold">Iniciar Sesión</h2>
-                    <p class="mb-0 small">Ingrese sus credenciales para continuar</p>
+        <div class="container d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+
+            <div class="login-card">
+
+                <h2 class="text-center">ASADA</h2>
+
+                <asp:Label ID="lblError" runat="server" CssClass="alert alert-danger d-block" Visible="False"></asp:Label>
+
+                <div class="mb-3">
+                    <label>Usuario</label>
+                    <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
 
-                <div class="card-body p-4">
-                    <div class="mx-auto w-100" style="max-width: 420px;">
-
-                        <asp:Label ID="lblError" runat="server" CssClass="alert alert-danger d-block" Visible="False"></asp:Label>
-
-                        <div class="form-floating mb-3">
-                            <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control rounded-3" placeholder="Nombre de usuario"></asp:TextBox>
-                            <label for="txtUsername">Nombre de usuario</label>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <asp:TextBox ID="txtPass" runat="server" CssClass="form-control rounded-3" TextMode="Password" placeholder="Contraseña"></asp:TextBox>
-                            <label for="txtPass">Contraseña</label>
-                        </div>
-
-                        <div class="d-grid mt-4">
-                            <asp:Button ID="btnLogin" runat="server" Text="Ingresar"
-                                CssClass="btn btn-lg text-white fw-bold rounded-3" OnClick="btnLogin_Click"
-                                Style="background-color:#E76862;" />
-                        </div>
-                    </div>
+                <div class="mb-3">
+                    <label>Contraseña</label>
+                    <asp:TextBox ID="txtPass" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
                 </div>
 
-                <div class="card-footer bg-white text-center border-0 pb-4">
-                    <span class="text-muted">¿No tiene cuenta?</span>
-                    <a href="Registro.aspx" class="text-decoration-none fw-bold ms-1" style="color:#1ECECB;">Registrarse</a>
+                <div class="d-grid mt-3">
+                    <asp:Button ID="btnLogin" runat="server" Text="Ingresar"
+                        CssClass="btn btn-login" OnClick="btnLogin_Click" />
+                </div>
+
+                <div class="text-center mt-3">
+                    <span>¿No tiene cuenta?</span>
+                    <a href="Registro.aspx">Registrarse</a>
                 </div>
 
             </div>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    </form>
 
-    <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/bundles/jquery") %>
-        <%: Scripts.Render("~/bundles/bootstrap") %>
-    </asp:PlaceHolder>
+        </div>
+
+    </form>
 </body>
 </html>
