@@ -3,7 +3,7 @@ Public Class DbHelper
     'El nombre de la conexión se obtiene del archivo Web.config, específicamente de la sección <connectionStrings>. 
     '    Asegúrate de que el nombre "ASADAConnectionString" coincida con el nombre definido en tu archivo Web.config.
     Private connectionString As String = ConfigurationManager.ConnectionStrings("ASADAConnectionString").ConnectionString
-
+    Private ReadOnly _logger As ErrorLogger
     Public Function GetConnection() As SqlConnection
         Dim conn As New SqlConnection(connectionString)
         Try
@@ -71,7 +71,27 @@ Public Class DbHelper
         Return Nothing
     End Function
 
-    Friend Function ExecuteScalar(query As String, parameters As Dictionary(Of String, Object), errorMessage As String) As Object
-        Throw New NotImplementedException()
+    Public Function ExecuteScalar(query As String, parameters As Dictionary(Of String, Object), errorMessage As String) As Object
+        If String.IsNullOrWhiteSpace(query) Then
+            Throw New ArgumentException("La consulta no puede estar vacía")
+        End If
+
+        Using conn As SqlConnection = GetConnection()
+            Using cmd As New SqlCommand(query, conn)
+                If parameters IsNot Nothing Then
+                    For Each p In parameters
+                        cmd.Parameters.AddWithValue(p.Key, p.Value)
+                    Next
+                End If
+
+                Try
+                    Return cmd.ExecuteScalar() ' Devuelve el primer valor de la primera fila del resultado
+                Catch ex As Exception
+                    _logger.LogError(ex, "Error ejecutando consulta: " & query)
+                    errorMessage = "Error al ejecutar la consulta: " & ex.Message
+                    Return Nothing
+                End Try
+            End Using
+        End Using
     End Function
 End Class

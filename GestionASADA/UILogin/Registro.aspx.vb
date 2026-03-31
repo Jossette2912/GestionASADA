@@ -6,7 +6,7 @@ Public Class Registro
     Inherits System.Web.UI.Page
 
     Private dbPersona As New PersonaDB()
-    Private dbUsuario As New UsuarioDB()
+    Private dbUsuario As New UsuariosDB()
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 

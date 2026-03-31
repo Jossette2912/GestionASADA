@@ -234,7 +234,7 @@
     <Compile Include="DataBase\FacturaDB.vb" />
     <Compile Include="DataBase\MedidorDB.vb" />
     <Compile Include="DataBase\SuscriptorDB.vb" />
-    <Compile Include="DataBase\UsuarioDBvb.vb" />
+    <Compile Include="DataBase\UsuariosDB.vb" />
     <Compile Include="Data\PersonaDB.vb" />
     <Compile Include="Default.aspx.vb">
       <SubType>ASPXCodeBehind</SubType>

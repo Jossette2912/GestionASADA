@@ -1,4 +1,4 @@
-﻿Public Class UsuarioDB
+﻿Public Class UsuariosDB
     Private db As New DbHelper()
 
     Public Function CrearUsuario(ByVal pUsuario As Models.Usuarios, ByRef errorMessage As String) As Boolean
@@ -38,6 +38,4 @@
 
         Return db.ExecuteQuery(query, parameters, errorMessage)
     End Function
-
 End Class
-
