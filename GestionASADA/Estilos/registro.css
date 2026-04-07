@@ -8,7 +8,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-    /* 🌑 CAPA AZUL (EFECTO PROFESIONAL) */
+    /* 🌑 CAPA OSCURA AZUL */
     body::before {
         content: "";
         position: fixed;
@@ -20,15 +20,22 @@ body {
         z-index: -1;
     }
 
+/* 📦 CONTENEDOR */
+.register-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* 🧊 TARJETA GLASS */
-.login-card {
-    position: relative;
-    z-index: 1;
+.register-card {
     backdrop-filter: blur(14px);
     background: rgba(255, 255, 255, 0.18);
     border-radius: 20px;
     padding: 35px;
-    max-width: 380px;
+    width: 100%;
+    max-width: 420px;
     box-shadow: 0 20px 50px rgba(0,0,0,0.4);
     border: 1px solid rgba(255,255,255,0.25);
     animation: fadeIn 0.8s ease;
@@ -47,14 +54,20 @@ body {
     }
 }
 
+/* 💧 LOGO */
+/*.logo {
+    width: 70px;
+}*/
+
 /* 🧾 TEXTOS */
-.login-card h2 {
+.register-card h2 {
     color: white;
     font-weight: 700;
 }
 
-.subtitulo {
+label {
     color: #dbe9f4;
+    font-size: 14px;
 }
 
 .texto-secundario {
@@ -76,7 +89,7 @@ body {
     }
 
 /* 🚀 BOTÓN */
-.btn-login {
+.btn-register {
     background: linear-gradient(135deg, #1ECECB, #159f9c);
     border: none;
     border-radius: 12px;
@@ -86,7 +99,7 @@ body {
     transition: 0.3s;
 }
 
-    .btn-login:hover {
+    .btn-register:hover {
         transform: translateY(-2px);
         box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     }

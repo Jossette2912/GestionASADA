@@ -147,6 +147,8 @@
     <Content Include="Estilos\estilos.css" />
     <Content Include="Estilos\fondoGif.css" />
     <Content Include="Estilos\Home.css" />
+    <Content Include="Estilos\inicio.css" />
+    <Content Include="Estilos\registro.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Imagenes\cenote.gif" />
