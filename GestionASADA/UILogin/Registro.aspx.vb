@@ -25,7 +25,7 @@ Public Class Registro
         Dim encryptor As New Simple3Des("frase$-secreta-123")
         usuario.PasswordHash = encryptor.EncryptData(txtPass.Text)
 
-        'usuario.Rol = ddlRol.SelectedValue
+        usuario.Rol = ddlRol.SelectedValue
         usuario.Activo = True
 
         Dim errorMessage As String = String.Empty
@@ -51,6 +51,6 @@ Public Class Registro
         txtEmail.Text = String.Empty
         txtUsername.Text = String.Empty
         txtPass.Text = String.Empty
-        'ddlRol.SelectedIndex = 0
+        ddlRol.SelectedIndex = 0
     End Sub
 End Class
