@@ -3,8 +3,8 @@
 Namespace Utils
     Public Module SwalUtils
         Public Sub ShowSwalMessage(page As System.Web.UI.Page, title As String, message As String, icon As String)
-            title = title.Replace("'", "")
-            message = message.Replace("'", "")
+            title = If(title, "").Replace("'", "")
+            message = If(message, "").Replace("'", "")
 
             ScriptManager.RegisterStartupScript(page, page.GetType(), Guid.NewGuid().ToString(), ShowSwalScript(title, message, icon), True)
         End Sub

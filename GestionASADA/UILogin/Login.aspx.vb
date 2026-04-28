@@ -24,13 +24,17 @@ Public Class Login
         Else
 
             Dim user = result.Rows(0)
+            'Throw New Exception("ROL: " & user("Rol").ToString())
             Session("User") = user("Username")
             Session("Rol") = user("Rol")
+            Session("Identificacion") = user("IDENTIFICACION")
 
-            If user("Rol") = "Administrador" Then
-                Response.Redirect("/UI/Home.aspx", False)
+            Dim rol As String = user("Rol").ToString().Trim().ToUpper()
+
+            If rol = "ADMINISTRADOR" Then
+                Response.Redirect("~/UI/Home.aspx")
             Else
-                Response.Redirect("/UI/Usuario.aspx", False)
+                Response.Redirect("~/UI/Usuario.aspx")
             End If
         End If
 

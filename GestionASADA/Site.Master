@@ -41,34 +41,47 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-dark" style="background-color:#1f2937; padding:10px 20px;">
+<div style="background-color:#1f2937; padding:10px 20px; width:100%;">
 
     <div style="display:flex; align-items:center; justify-content:space-between;">
 
-        <!-- LOGO -->
-      <%--  <div style="color:white; font-weight:bold; font-size:18px;">
-            ASADA
-        </div>--%>
+        <!-- IZQUIERDA -->
+        <div style="display:flex; align-items:center; flex:1;">
 
-        <!-- MENÚ -->
-        <div style="display:flex; gap:20px;">
+    <asp:Panel ID="pnlAdminMenu" runat="server" 
+        style="display:flex; gap:25px; align-items:center;">
 
-            <a href="/UI/Home.aspx" style="color:white; text-decoration:none;">Inicio</a>
+        <a href="/UI/Home.aspx" style="color:white; text-decoration:none;">Inicio</a>
+        <a href="/UI/Suscriptor.aspx" style="color:white; text-decoration:none;">Suscriptores</a>
+        <a href="/UI/Medidor.aspx" style="color:white; text-decoration:none;">Medidores</a>
+        <a href="/UI/Consumo.aspx" style="color:white; text-decoration:none;">Consumo</a>
+        <a href="/UI/Factura.aspx" style="color:white; text-decoration:none;">Facturación</a>
 
-            <a href="/UI/Suscriptor.aspx" style="color:white; text-decoration:none;">Suscriptores</a>
+    </asp:Panel>
 
-            <a href="/UI/Medidor.aspx" style="color:white; text-decoration:none;">Medidores</a>
+</div>
 
-            <a href="/UI/Consumo.aspx" style="color:white; text-decoration:none;">Consumo</a>
+        <!-- DERECHA -->
+        <div style="display:flex; align-items:center; gap:15px;">
 
-            <a href="/UI/Factura.aspx" style="color:white; text-decoration:none;">Facturación</a>
+            <asp:Label ID="lblUser" runat="server"
+                style="color:#e5e7eb; font-size:14px;"></asp:Label>
+
+            <asp:LinkButton 
+                ID="btnLogout" 
+                runat="server" 
+                OnClick="btnLogout_Click"
+                style="color:#f87171; text-decoration:none;">
+                Cerrar sesión
+            </asp:LinkButton>
 
         </div>
 
     </div>
 
 </div>
-        <div class="container body-content">
+
+        <div class="body-content" style="width:100%; padding:20px;">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />

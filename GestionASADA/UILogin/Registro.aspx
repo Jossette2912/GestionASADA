@@ -42,12 +42,13 @@
                 <asp:TextBox ID="txtPass" runat="server" CssClass="form-control" TextMode="Password" placeholder="Contraseña"></asp:TextBox>
             </div>
             <div class="mb-3">
-                            <label for="ddlRol" class="form-label fw-semibold">Rol</label>
-                            <asp:DropDownList ID="ddlRol" runat="server" CssClass="form-select rounded-3 w-100">
-                                <asp:ListItem Text="Seleccione un rol" Value="" />
-                                <asp:ListItem Text="Administrador" Value="Administrador" />
-                                <asp:ListItem Text="Usuario" Value="Usuario" />
-                            </asp:DropDownList>
+    <label for="ddlRol" class="form-label fw-semibold">Rol</label>
+    <asp:DropDownList ID="ddlRol" runat="server" CssClass="form-select rounded-3 w-100">
+        <asp:ListItem Text="Seleccione un rol" Value="" />
+        <asp:ListItem Text="Administrador" Value="Administrador" />
+        <asp:ListItem Text="Usuario" Value="Usuario" />
+    </asp:DropDownList>
+    </div>
 
             <div class="d-grid mt-3">
                 <asp:Button ID="btnRegistrar" runat="server" Text="Registrarse"
