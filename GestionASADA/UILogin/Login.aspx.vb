@@ -22,7 +22,16 @@ Public Class Login
         If result.Rows.Count = 0 Then
             SwalUtils.ShowSwalError(Me, "Error de Login", errorMessage)
         Else
-            Response.Redirect("/UI/Home.aspx", False)
+
+            Dim user = result.Rows(0)
+            Session("User") = user("Username")
+            Session("Rol") = user("Rol")
+
+            If user("Rol") = "Administrador" Then
+                Response.Redirect("/UI/Home.aspx", False)
+            Else
+                Response.Redirect("/UI/Usuario.aspx", False)
+            End If
         End If
 
     End Sub
